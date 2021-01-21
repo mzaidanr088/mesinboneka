@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__ . "/Doll.php";
 
 
 $machine = new Payment();
