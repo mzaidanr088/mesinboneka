@@ -1,23 +1,19 @@
 <?php
 
-Class Doll
-{
+Class Doll{
     private $name;
     private $price;
 
-    public function __construct($name, $price)
-    {
+    public function __construct($name, $price){
         $this->name = $name;
         $this->price = $price;
     }
 
-    public function getName()
-    {
+    public function getName(){
         return $this->name;
     }
 
-    public function getPrice()
-    {
+    public function getPrice(){
         return $this->price;
     }
 }
@@ -32,24 +28,20 @@ $Dolls = [
 
 //method menambahkan asesoris
 
-Class Accessories
-{
+Class Accessories{
     private $name;
     private $price;
 
-    public function __construct($name, $price)
-    {
+    public function __construct($name, $price){
         $this->name = $name;
         $this->price = $price;
     }
 
-    public function getName()
-    {
+    public function getName(){
         return $this->name;
     }
 
-    public function getPrice()
-    {
+    public function getPrice(){
         return $this->price;
     }
 }
@@ -64,87 +56,77 @@ $accessories = [
 ];
 
 //method pembayaran
-class Payment
-{
+Class Payment{
     private $Doll = null;
     private $accessories = [];
-
     private $total = 0;
-    public function __construct()
-    {
+    public function __construct(){
     }
 
-    public function selectDoll(Doll $Doll)
-    {
+    public function selectDoll(Doll $Doll){
         $this->Doll = $Doll;
     }
 
 
-    public function addAccessory(Accessory $accessory)
-    {
+    public function addAccessory(Accessory $accessory){
         $this->accessories[] = $accessory;
     }
 
-    public function getDoll()
-    {
+    public function getDoll(){
         return $this->Doll;
     }
 
-    public function getAccessories()
-    {
+    public function getAccessories(){
         return $this->accessories;
     }
 
-    public function discount1()
-    {
+    public function discount1(){
         $hasSword = false;
         $hasShild = false;
 
-        foreach ($this->accessories as $accessory) {
+        foreach ($this->accessories as $accessory){
             if ($accessory->getName() === "Sword") $hasSword = true;
             if ($accessory->getName() === "Shild") $hasShild = true;
         }
 
-        if ($hasSword && $hasShild) {
+        if ($hasSword && $hasShild){
             $this->total = $this->total + 0.10;
-        }
+     }
     }
 
-    public function discount2()
-    {
+    public function discount2(){
         $hasHat = false;
         $hasAngelWings = false;
 
-        foreach ($this->accessories as $accessory) {
+        foreach ($this->accessories as $accessory){
             if ($accessory->getName() === "Hat") $hasHat = true;
             if ($accessory->getName() === "AngelWings") $hasAngelWings = true;
         }
 
-        if ($hasTopi && $hasAngelWings) {
+        if ($hasTopi && $hasAngelWings){
             $this->total = $this->total + 0.13;
-        }
+    }
     }
 
-    public function discount3()
-    {
-        if (isset($this->accessories[2]) && $this->accessories[2] . getName() === "Magic ring") {
+    public function discount3(){
+        if (isset($this->accessories[2]) && $this->accessories[2] . getName() === "Magic ring"){
             $this->total = $this->total + 0.2;
-        }
+    }
     }
 
-    public function calculate() {
+    public function calculate(){
         $this->total = $this->doll->getPrice();
 
         foreach ($this->accessories  as $accessory) {
             $this->total += $accessory->getPrice();
         }
 
-        $this->discount1();
+        $this->discount1()
         $this->discount2();
         $this->discount3();
     }
 
-    public function getTotal() {
+    public function getTotal(){
         return $this->total;
-    }
+  }
 }
